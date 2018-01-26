@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $users = User::latest()->paginate(5);
         $title = 'Latest User';
-        return view('home')->withUsers($users)->withTitle($title);
+        return view('admin.admin_template')->withUsers($users)->withTitle($title);
     }
 
     /**
@@ -91,6 +91,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $users = User::find($id);
+      $users->delete();
+      return redirect('admin')->with('success','user has been delete');
     }
 }
