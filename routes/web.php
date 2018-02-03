@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'UserController@index');
 Route::get('/admin', 'UserController@index');
+Route::get('/customer', 'CustomerController@index');
 Route::resource('users', 'UserController');
+Route::resource('customers', 'CustomerController');
