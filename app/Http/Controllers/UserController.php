@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $users = User::latest()->paginate(5);
         $title = 'Latest User';
-        return view('admin.admin_template')->withUsers($users)->withTitle($title);
+        return view('auth.show')->withUsers($users)->withTitle($title);
     }
 
     /**

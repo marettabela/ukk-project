@@ -4,12 +4,7 @@
         <div class="col-md-12">
           <div class="box">
             <div class="box-header with-border">
-            <div class="col-md-10">
               <h3 class="box-title">User Data</h3>
-            </div>
-            <div class="col-md-2">
-              <a class="btn btn-primary" href="{{ route('customers.create') }}">Create Data</a>
-            </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -17,22 +12,19 @@
                 <tr>
                   <th style="width: 10px">Id</th>
                   <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  <th>Gender</th>
+                  <th>Email</th>
+                  <th>Level</th>
                   <th>Action</th>
                 </tr>
                 <?php $no=1; ?>
-                @foreach($customers as $customer)
+                @foreach($users as $user)
                 <tr>
                   <td>{{$no++}}</td>
-                  <td>{{$customer->name}}</td>
-                  <td>{{$customer->address}}</td>
-                  <td>{{$customer->phone}}</td>
-                  <td>{{$customer->gender}}</td>
+                  <td>{{$user->name}}</td>
+                  <td>{{$user->email}}</td>
+                  <td>{{$user->level}}</td>
                   <td>
-                  <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['customers.destroy', $customer->id],'style'=>'display:inline']) !!}
+                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 
                     {!! Form::close() !!}
@@ -40,9 +32,18 @@
                 </tr>
                 @endforeach
               </table>
-              {!! $customers->links() !!}
+              {!! $users->links() !!}
             </div>
             <!-- /.box-body -->
+            <div class="box-footer clearfix">
+              <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         </section>
