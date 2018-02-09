@@ -17,10 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'UserController@index');
-Route::get('/admin', 'UserController@index');
-Route::get('/customer', 'CustomerController@index');
-Route::get('/customer/create', 'CustomerController@create');
-Route::get('/customers/edit/{id}', 'CustomerController@edit');
-Route::resource('users', 'UserController');
-Route::resource('customers', 'CustomerController');
+Route::middleware('admin')->group(function(){
+Route::get('/admin','UserController@index');
+Route::get('/customers','CustomerController@index');
+Route::get('/customers/create','CustomerController@create');
+Route::get('/customers/edit/{id}','CustomerController@edit');
+Route::get('/admin/rutes/create','RuteController@rutebikin')->name('rute.rutebikin');
+Route::post('/admin/rutes/create','RuteController@rutesetor')->name('rute.rutesetor');
+Route::resource('users','UserController');
+Route::resource('customers','CustomerController');
+});

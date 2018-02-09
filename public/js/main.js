@@ -1,100 +1,159 @@
-jQuery(document).ready(function($){
-	//if you change this breakpoint in the style.css file (or _layout.scss if you use SASS), don't forget to update this value as well
-	var MqL = 1170;
-	//move nav element position according to window width
-	moveNavigation();
-	$(window).on('resize', function(){
-		(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
-	});
-
-	//mobile - open lateral menu clicking on the menu icon
-	$('.cd-nav-trigger').on('click', function(event){
-		event.preventDefault();
-		if( $('.cd-main-content').hasClass('nav-is-visible') ) {
-			closeNav();
-			$('.cd-overlay').removeClass('is-visible');
-		} else {
-			$(this).addClass('nav-is-visible');
-			$('.cd-main-header').addClass('nav-is-visible');
-			$('.cd-main-content').addClass('nav-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-				$('body').addClass('overflow-hidden');
-			});
-			toggleSearch('close');
-			$('.cd-overlay').addClass('is-visible');
-		}
-	});
-
-	//open search form
-	$('.cd-search-trigger').on('click', function(event){
-		event.preventDefault();
-		toggleSearch();
-		closeNav();
-	});
-
+;(function () {
 	
-	
-	
+	'use strict';
 
 
-	
 
-	//submenu items - go back link
-	$('.go-back').on('click', function(){
-		$(this).parent('ul').addClass('is-hidden').parent('.has-children').parent('ul').removeClass('moves-out');
-	});
+	// iPad and iPod detection	
+	var isiPad = function(){
+		return (navigator.platform.indexOf("iPad") != -1);
+	};
 
-	function closeNav() {
-		$('.cd-nav-trigger').removeClass('nav-is-visible');
-		$('.cd-main-header').removeClass('nav-is-visible');
-		$('.cd-primary-nav').removeClass('nav-is-visible');
-		$('.has-children ul').addClass('is-hidden');
-		$('.has-children a').removeClass('selected');
-		$('.moves-out').removeClass('moves-out');
-		$('.cd-main-content').removeClass('nav-is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-			$('body').removeClass('overflow-hidden');
+	var isiPhone = function(){
+	    return (
+			(navigator.platform.indexOf("iPhone") != -1) || 
+			(navigator.platform.indexOf("iPod") != -1)
+	    );
+	};
+
+	// Main Menu Superfish
+	var mainMenu = function() {
+
+		$('#fh5co-primary-menu').superfish({
+			delay: 0,
+			animation: {
+				opacity: 'show'
+			},
+			speed: 'fast',
+			cssArrows: true,
+			disableHI: true
 		});
+
+	};
+
+	//Date Picker
+
+   $('#date-start, #date-end').datepicker();
+
+   [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {  
+      new SelectFx(el);
+   } );
+
+	// Parallax
+	var parallax = function() {
+		if ( !isiPad() || !isiPhone() ) {
+			$(window).stellar();
+		}
+	};
+
+
+	// Offcanvas and cloning of the main menu
+	var offcanvas = function() {
+
+		var $clone = $('#fh5co-menu-wrap').clone();
+		$clone.attr({
+			'id' : 'offcanvas-menu'
+		});
+		$clone.find('> ul').attr({
+			'class' : '',
+			'id' : ''
+		});
+
+		$('#fh5co-page').prepend($clone);
+
+		// click the burger
+		$('.js-fh5co-nav-toggle').on('click', function(){
+
+			if ( $('body').hasClass('fh5co-offcanvas') ) {
+				$('body').removeClass('fh5co-offcanvas');
+			} else {
+				$('body').addClass('fh5co-offcanvas');
+			}
+			// event.preventDefault();
+
+		});
+
+		$('#offcanvas-menu').css('height', $(window).height());
+
+		$(window).resize(function(){
+			var w = $(window);
+
+
+			$('#offcanvas-menu').css('height', w.height());
+
+			if ( w.width() > 769 ) {
+				if ( $('body').hasClass('fh5co-offcanvas') ) {
+					$('body').removeClass('fh5co-offcanvas');
+				}
+			}
+
+		});	
+
 	}
 
-	function toggleSearch(type) {
-		if(type=="close") {
-			//close serach 
-			$('.cd-search').removeClass('is-visible');
-			$('.cd-search-trigger').removeClass('search-is-visible');
-			$('.cd-overlay').removeClass('search-is-visible');
-		} else {
-			//toggle search visibility
-			$('.cd-search').toggleClass('is-visible');
-			$('.cd-search-trigger').toggleClass('search-is-visible');
-			$('.cd-overlay').toggleClass('search-is-visible');
-			if($(window).width() > MqL && $('.cd-search').hasClass('is-visible')) $('.cd-search').find('input[type="search"]').focus();
-			($('.cd-search').hasClass('is-visible')) ? $('.cd-overlay').addClass('is-visible') : $('.cd-overlay').removeClass('is-visible') ;
-		}
-	}
+	
 
-	function checkWindowWidth() {
-		//check window width (scrollbar included)
-		var e = window, 
-            a = 'inner';
-        if (!('innerWidth' in window )) {
-            a = 'client';
-            e = document.documentElement || document.body;
-        }
-        if ( e[ a+'Width' ] >= MqL ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	// Click outside of the Mobile Menu
+	var mobileMenuOutsideClick = function() {
+		$(document).click(function (e) {
+	    var container = $("#offcanvas-menu, .js-fh5co-nav-toggle");
+	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+	      if ( $('body').hasClass('fh5co-offcanvas') ) {
+				$('body').removeClass('fh5co-offcanvas');
+			}
+	    }
+		});
+	};
 
-	function moveNavigation(){
-		var navigation = $('.cd-nav');
-  		var desktop = checkWindowWidth();
-        if ( desktop ) {
-			navigation.detach();
-			navigation.insertBefore('.cd-header-buttons');
-		} else {
-			navigation.detach();
-			navigation.insertAfter('.cd-main-content');
+
+	// Animations
+
+	var contentWayPoint = function() {
+		var i = 0;
+		$('.animate-box').waypoint( function( direction ) {
+
+			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+				
+				i++;
+
+				$(this.element).addClass('item-animate');
+				setTimeout(function(){
+
+					$('body .animate-box.item-animate').each(function(k){
+						var el = $(this);
+						setTimeout( function () {
+							el.addClass('fadeInUp animated');
+							el.removeClass('item-animate');
+						},  k * 50, 'easeInOutExpo' );
+					});
+					
+				}, 100);
+				
+			}
+
+		} , { offset: '85%' } );
+	};
+	
+	var stickyBanner = function() {
+		var $stickyElement = $('.sticky-banner');
+		var sticky;
+		if ($stickyElement.length) {
+		  sticky = new Waypoint.Sticky({
+		      element: $stickyElement[0],
+		      offset: 0
+		  })
 		}
-	}
-});
+	}; 
+
+	// Document on load.
+	$(function(){
+		mainMenu();
+		parallax();
+		offcanvas();
+		mobileMenuOutsideClick();
+		contentWayPoint();
+		stickyBanner();
+	});
+
+
+}());
