@@ -23,11 +23,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel='stylesheet' type='text/css' />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/team.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/jquery-ui') }}" /><!-- // calendar -->
     <!-- // Style-sheets -->
     <!-- Online-fonts -->
     <link href="//fonts.googleapis.com/css?family=Montserrat:100,200,400,500,600" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+     <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="{{ asset('bower_components/morris.js/morris.css') }}">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="{{ asset('bower_components/jvectormap/jquery-jvectormap.css') }}">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
     <!--// Online-fonts -->
 
 </head>
@@ -103,19 +130,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </nav>
                         </div>
                     </nav>
-                    <div class="w3ls_search">
-                        <div class="cd-main-header">
-                            <ul class="cd-header-buttons">
-                                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
-                            </ul>
-                            <!-- cd-header-buttons -->
-                        </div>
-                        <div id="cd-search" class="cd-search">
-                            <form action="#" method="post">
-                                <input name="Search" type="search" placeholder="Search...">
-                            </form>
-                        </div>
-                    </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -187,95 +201,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--banner form-->
     <div id="horizontalTab">
         <ul class="resp-tabs-list">
-            <li>Hotels</li>
             <li>Flights</li>
-            <li>Cars</li>
         </ul>
         <div class="resp-tabs-container">
-            <div class="tab1">
-                <form action="#" method="post">
-                    <div class="col-md-4 fields">
-                        <span>City or Hotel Name</span>
-                        <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                    </select>
-                    </div>
-                    <div class="col-md-2 fields">
-                        <span>Check-In</span>
-                        <input id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                            required="">
-                    </div>
-                    <div class="col-md-2 fields">
-                        <span>Check-Out</span>
-                        <input id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                            required="">
-                    </div>
-                    <div class="col-md-2 fields">
-                        <span>Adults</span>
-                        <select class="form-control">
-                                        <option>select</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>More than 5</option>
-                                    </select>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-                <div class="clearfix"></div>
-            </div>
-
             <div class="tab2">
                 <div class="register">
-                    <form action="#" method="post">
+                    <form action="{{ route('book.carimaskapai') }}" method="get">
                         <div class="col-md-6 fields">
                             <span>From</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
+                            <select class="form-control" name="rute_form">
+                                        <option value="" disabled selected>----</option>
+                                        <option value="Denpasar">   Denpasar</option>
+                                        <option value="Jakarta">Jakarta</option>
+                                        <option value="Bandung">Bandung</option>
+                                        <option value="Jayapura">Jayapura</option>
+                                        <option value="Pontianak">Pontianak</option>
+                                        <option value="Palembang">Palembang</option>
+                                        <option value="Makasar">Makasar</option>
                                     </select>
                         </div>
                         <div class="col-md-6 fields">
                             <span>To</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
+                            <select class="form-control" name="rute_to">
+                                        <option value="" disabled selected>----</option>
+                                        <option value="Denpasar">   Denpasar</option>
+                                        <option value="Jakarta">Jakarta</option>
+                                        <option value="Bandung">Bandung</option>
+                                        <option value="Jayapura">Jayapura</option>
+                                        <option value="Pontianak">Pontianak</option>
+                                        <option value="Palembang">Palembang</option>
+                                        <option value="Makasar">Makasar</option>
                                     </select>
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-md-3 fields">
                             <span>Departing</span>
-                            <input id="datepicker2" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                required="">
-                        </div>
-                        <div class="col-md-3 fields">
-                            <span>Returning</span>
-                            <input id="datepicker3" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                required="">
+                            <input type="text" class="form-control" id="datepicker2" data-date-format="yyyy-mm-dd"
+                                placeholder="yyyy-mm-dd"name="depart_at" />
                         </div>
                         <div class="col-md-2 fields">
                             <span>Adults</span>
-                            <select class="form-control">
+                            <select class="form-control" name="seat">
                                         <option>select</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -285,75 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <option>More than 5</option>
                                     </select>
                         </div>
-                        <div class="col-md-2 fields">
-                            <span>Child's</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>More than 5</option>
-                                    </select>
-                        </div>
-                        <div class="col-md-2 fields">
-                            <input type="submit" value="Submit">
-                        </div>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-            </div>
-            <div class="tab3">
-                <div class="reset">
-                    <form action="#" method="post">
-                        <div class="col-md-4 fields">
-                            <span>Country</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                    </select>
-                        </div>
-                        <div class="col-md-4 fields">
-                            <span>City</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                    </select>
-                        </div>
-                        <div class="col-md-4 fields">
-                            <span>Location</span>
-                            <select class="form-control">
-                                        <option>select</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                        <option>Lorem Ipsum</option>
-                                        <option>Adipiscing</option>
-                                    </select>
-                        </div>
-                        <div class="col-md-4 fields">
-                            <span>Pick up Date</span>
-                            <input id="datepicker4" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                required="">
-                        </div>
-                        <div class="col-md-4 fields">
-                            <span>Drop off Date</span>
-                            <input id="datepicker5" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"
-                                required="">
-                        </div>
-                        <div class="col-md-4 fields">
+                         <div class="col-md-2 fields">
                             <input type="submit" value="Submit">
                         </div>
                         <div class="clearfix"></div>
@@ -363,48 +261,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <!--//banner form-->
-
-    <!-- About -->
-    <div class="about">
-        <h3 class="tittle">A little about us</h3>
-        <div class="banner_bottom_right">
-            <div class="callbacks_container">
-                <ul class="rslides" id="slider3">
-                    <li>
-                        <div class="banner-text1">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="banner-text2">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="banner-text3">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="banner-text4">
-                            <iframe src="https://player.vimeo.com/video/92605278"></iframe>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-        <div class="col-md-7 banner_bottom_left">
-            <h3>Making the most out of your holiday</h3>
-            <p class="para-agileits"> Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-                vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-                fugiat quo voluptas nulla pariatur.</p>
-            <p class="para-agileits">Mauris tempus commodo lectus ac egestas. Vestibulum sed bibendum arcu, at commodo purus. Curabitur vitae mauris nunc.
-                Curabitur imperdiet.Mauris tempus commodo lectus ac egestas. Vestibulum sed bibendum arcu, at commodo purus. Curabitur
-                vitae mauris nunc. Curabitur imperdiet, sem nec porta interdum, metus sem sodales urna, ac fringilla nisi neque et ante.
-                Aliquam ac efficitur leo, quis rutrum felis. Maecenas in libero vel nisi iaculis faucibus id tempus arcu.</p>
-            <div class="readmore-w3-agileits"><a href="#" data-toggle="modal" data-target="#myModal1">Know More</a></div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-    <!-- //About -->
     <!--sevices-->
     <div class="sevices-w3layouts" id="services">
         <div class="container">
@@ -822,6 +678,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
     <!-- //smooth scrolling -->
     <script type="text/javascript" src="{{ asset('js/bootstrap-3.1.1.min.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- Morris.js charts -->
+<script src="{{ asset('bower_components/raphael/raphael.min.js') }}"></script>
+<script src="{{ asset('bower_components/morris.js/morris.min.js') }}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+<!-- jvectormap -->
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('bower_components/jquery-knob/dist/jquery.knob.min.js') }}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('bower_components/moment/min/moment.min.js') }}"></script>
+<script src="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<!-- datepicker -->
+<script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+<!-- Slimscroll -->
+<script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+<!-- FastClick -->
+<script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('dist/js/demo.js') }}"></script>
+<script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
 </body>
 </html>
