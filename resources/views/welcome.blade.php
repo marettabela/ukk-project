@@ -94,37 +94,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                             <nav class="cl-effect-15" id="cl-effect-15">
                                 <ul>
-                                    <li><a href="#home" class="active" data-hover="Home">Home</a></li>
-                                    <li><a href="about.html" data-hover="About">About</a></li>
-                                    <li><a href="gallery.html" data-hover="Gallery">Gallery</a></li>
-                                    <li><a href="contact.html" data-hover="Contact">Contact</a></li>
+                                    
                                     @if (Route::has('login'))
                                     @auth
-                                    <li class="dropdown menu__item">
-                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" data-hover="Hi, {{ Auth::user()->name }}" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Hi, {{ Auth::user()->name }}<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#" data-hover="Hi, {{ Auth::user()->name }}" role="button" 
+                                            >Hi, {{ Auth::user()->name }}</a></li>
+                                        <li><a href="#home" class="active" data-hover="Home">Home</a></li>
                                             <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
-
+                                        </li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form></li>
-                                        </ul>
-                                    </li>
                                     @else
-                                    <li class="dropdown menu__item">
-                                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" data-hover="Login" role="button" aria-haspopup="true"
-                                            aria-expanded="false">Login<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
+                                            <li><a href="#home" class="active" data-hover="Home">Home</a></li>
                                             <li><a href="{{ route('login') }}">login</a></li>
                                             <li><a href="{{ route('register') }}">Register</a></li>
-                                        </ul>
                                     @endauth
-                                    </li>
                                     @endif
                                 </ul>
                             </nav>
@@ -143,9 +133,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="slider-img-w3layouts one">
                             <div class="container">
                                 <div class="slider-info">
-                                    <h3>Ultimate winter experience provider.</h3>
-                                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit.</p>
-                                    <div class="readmore-w3-agileits"><a href="#" data-toggle="modal" data-target="#myModal1">Know More</a></div>
+                                    <h3>Welcome to TerbangKemana </h3>
+                                    <p>Pesan Tiket Pesawat dengan mudah </p>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -154,9 +144,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="slider-img-w3layouts two">
                             <div class="container">
                                 <div class="slider-info">
-                                    <h3>Thai wonder, hidden in the jungle.</h3>
-                                    <p>Curabitur laoreet Nunc condimentum laoreet.</p>
-                                    <div class="readmore-w3-agileits"><a href="#" data-toggle="modal" data-target="#myModal1">Know More</a></div>
+                                    <h3>Welcome to TerbangKemana</h3>
+                                    <p>Pesan Tiket Pesawat dengan nyaman</p>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -165,9 +155,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="slider-img-w3layouts three">
                             <div class="container">
                                 <div class="slider-info">
-                                    <h3>Going deep into the isle of hawaii.</h3>
-                                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit.</p>
-                                    <div class="readmore-w3-agileits"><a href="#" data-toggle="modal" data-target="#myModal1">Know More</a></div>
+                                    <h3>Welcome to TerbangKemana</h3>
+                                    <p>Pesan Tiket Pesawat dengan hemat</p>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -247,8 +237,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5</option>
-                                        <option>More than 5</option>
                                     </select>
                         </div>
                          <div class="col-md-2 fields">

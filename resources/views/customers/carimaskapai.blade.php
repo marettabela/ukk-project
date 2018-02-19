@@ -14,8 +14,8 @@
                             Rute : {{$rutes->rute_from}} - {{$rutes->rute_to}}<br>
                             Harga : {{$rutes->price}}<br>
                         </b>
-                        <button class="btn btn-primary">Select</button>
-                        <hr>
+                        <a href="{{route('book.detail',$rutes)}}?seat={{$_GET['seat']}}" class="btn btn-primary" style="font-size: 12px;">PILIH</a><br>
+                                                        <hr>
                 
                         @endforeach
                         {{$rute->links()}}

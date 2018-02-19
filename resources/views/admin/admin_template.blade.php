@@ -360,7 +360,7 @@
         </li>
                 <li>
           <a href="{{ url('/admin/rutes') }}">
-            <i class="fa fa-th"></i> <span>Customer</span>
+            <i class="fa fa-th"></i> <span>Rutes</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
