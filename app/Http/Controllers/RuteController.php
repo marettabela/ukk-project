@@ -45,6 +45,26 @@ class RuteController extends Controller
         ]);
         return redirect()->route('customers.index');
     }
+    public function edit($id)
+    {
+        $rutes = Rute::Latest();
+        $transportation = Transportation::all();
+        $rutes = Rute::find($id);
+        return view('admin.edit_rute',compact('transportation','rutes','id'))->with([
+            'rutes'=> $rutes]);
+    }
+    public function update(Request $request, $id)
+    {
+        request()->validate([
+            'depart_at' => 'required',
+            'rute_from' => 'required',
+            'rute_to' => 'required',
+            'price' => 'required',
+            ]);    
+        Rute::find($id)->update($request->all());
+        return redirect()->route('rutes.index')
+                        ->with('success','rute update succesfully');
+    }
     public function show($id)
     {
         $rute = Rute::find($id);

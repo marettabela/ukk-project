@@ -31,6 +31,7 @@ Route::get('/admin/customers/edit/{id}', 'CustomerController@edit');
 Route::get('/admin/rutes', 'RuteController@index');
 Route::get('/admin/rutes/create','RuteController@create');
 Route::post('/admin/rutes/create','RuteController@store');
+Route::get('/admin/rutes/edit/{id}','RuteController@edit')->name('rute.edit');
 Route::resource('users','UserController');
 Route::resource('customers','CustomerController');
 Route::resource('rutes','RuteController');

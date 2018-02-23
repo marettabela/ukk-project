@@ -29,11 +29,11 @@
 						</tr>
 						<tr>
 						<td>Jumlah Penumpang</td> 
-						<td> : {{$_GET['seat']}}</td>
+						<td> : {{$_GET['seat']}} orang</td>
 						</tr>
 						<tr>
 						<td>Harga</td>
-						<td> : {{number_format($rute->price)}} x {{$_GET['seat']}} = {{number_format($rute->price * $_GET['seat'],2)}}</td>
+						<td> : {{number_format($rute->price)}} x {{$_GET['seat']}} = Rp. {{number_format($rute->price * $_GET['seat'],2)}}</td>
 						</tr>
 					</b>
 					</table>
