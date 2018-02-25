@@ -428,7 +428,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <img src="images/c1.jpg" class="img-responsive" alt="" />
                             </div>
                             <div class="testi-right-agileits">
-                                <h5>Williamson<span> - Italy</span></h5>
+                                <h5>Maretta Bela<span> - SMK TELKOM PURWOKERTO</span></h5>
                                 <ul class="top-right-info-w3ls">
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
@@ -437,52 +437,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="clearfix"></div>
                             <div class="textagile">
-                                <p> At vero eos et accusam et justo duo dolores et ea rebum stet kasd gubergren sed diam aliquyamerat, sed voluptua labore
-                                    et doloremagnal aliquyamerat, sed diam voluptua.</p>
+                                <p> Web abal abal, belum sempurna , hanya untuk nilai ukk </p>
                             </div>
                         </div>
                     </div>
-                    <div class="item-owl">
-                        <div class="test-review">
-                            <div class="img-agile">
-                                <img src="images/c2.jpg" class="img-responsive" alt="" />
-                            </div>
-                            <div class="testi-right-agileits">
-                                <h5>Kristina<span> - Spain</span></h5>
-                                <ul class="top-right-info-w3ls">
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="textagile">
-                                <p> At vero eos et accusam et justo duo dolores et ea rebum stet kasd gubergren sed diam aliquyamerat, sed voluptua labore
-                                    et doloremagnal aliquyamerat, sed diam voluptua.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-owl">
-                        <div class="test-review">
-                            <div class="img-agile">
-                                <img src="images/c3.jpg" class="img-responsive" alt="" />
-                            </div>
-                            <div class="testi-right-agileits">
-                                <h5>Williamson<span> - Egypt</span></h5>
-                                <ul class="top-right-info-w3ls">
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="textagile">
-                                <p> At vero eos et accusam et justo duo dolores et ea rebum stet kasd gubergren sed diam aliquyamerat, sed voluptua labore
-                                    et doloremagnal aliquyamerat, sed diam voluptua.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
             </div>
             <div class="clearfix"></div>
         </div>

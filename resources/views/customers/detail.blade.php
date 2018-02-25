@@ -43,7 +43,7 @@
 						*) Jika data belum benar dan belum sesuai maka klik tombol <b>KEMBALI</b><br>
 						</p>
 						<a href="/" class="btn btn-primary" style="font-size: 13px;">KEMBALI</a>
-						<a href="#" class="btn btn-primary" style="font-size: 13px;">LANJUTKAN</a>
+						<a href="{{route('book.createcus',  $rute)}}?seat={{$_GET['seat']}}" class="btn btn-primary" style="font-size: 13px;">LANJUTKAN</a>
 
 					</div>
 				</div>
